@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="Inject" Content="Inject" HorizontalAlignment="Left" Margin="93,69,0,0" VerticalAlignment="Top" Width="75" Click="Inject_Click"/>
+        <Button x:Name="SocketServerButton" Content="Start Socket Server" HorizontalAlignment="Left" Margin="52,130,0,0" VerticalAlignment="Top" Width="139" Click="SocketServerButton_Click"/>
+
     </Grid>
 </Window>

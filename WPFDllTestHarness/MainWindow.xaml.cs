@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFDllTestHarness.Services;
 
 namespace WPFDllTestHarness
 {
@@ -20,9 +21,26 @@ namespace WPFDllTestHarness
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ComService _ComService;
+        AsynchronousSocketListener SocketListener;
         public MainWindow()
         {
             InitializeComponent();
+            _ComService = ComService.Instance();
+        }
+
+        private void Inject_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("injecting");
+            ComService.Instance().StartService();
+            Console.WriteLine("injecting Complete");
+        }
+
+        private void SocketServerButton_Click(object sender, RoutedEventArgs e)
+        {
+            SocketListener =  new AsynchronousSocketListener();
+            SocketListener.StartListening();
+
         }
     }
 }
